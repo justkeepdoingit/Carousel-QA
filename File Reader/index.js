@@ -1,13 +1,25 @@
-const fileInput = document.querySelector('input[type="file"]');
+const fileInput = document.querySelectorAll('input[type="file"]');
 const preview = document.querySelectorAll(".md-teaser-image");
-const reader = new FileReader();
+const png = document.querySelectorAll(".carousel-png");
+let reader = new FileReader();
+
+let firstDrop = true;
 
 function handleEvent(event) {
   if (event.type === "load") {
     for (let i = 0; i < preview.length; i++) {
+      if (firstDrop == false) {
+        for (let k = 0; k < png.length; k++) {
+          png[k].setAttribute("src", `${reader.result}`);
+        }
+
+        return;
+      }
       preview[i].style.backgroundImage = `url(${reader.result})`;
     }
     document.querySelector(".drop-container").classList.remove("no-content");
+    document.querySelector(".background").classList.remove("absolute");
+    firstDrop = false;
   }
 }
 
@@ -19,16 +31,19 @@ function addListeners(reader) {
   reader.addEventListener("error", handleEvent);
   reader.addEventListener("abort", handleEvent);
 }
-
 function handleSelected(e) {
-  const selectedFile = fileInput.files[0];
-  if (selectedFile) {
-    addListeners(reader);
-    reader.readAsDataURL(selectedFile);
+  const selectedFile = fileInput;
+  for (let i = 0; i < selectedFile.length; i++) {
+    if (selectedFile[i].files[0]) {
+      reader = new FileReader();
+      addListeners(reader);
+      reader.readAsDataURL(selectedFile[i].files[0]);
+    }
   }
 }
-
-fileInput.addEventListener("change", handleSelected);
+for (let i = 0; i < fileInput.length; i++) {
+  fileInput[i].addEventListener("change", handleSelected);
+}
 
 function createFrag(tag, string) {
   let frag = document.createDocumentFragment(),
@@ -64,3 +79,37 @@ for (let i = 0; i < inputs.length; i++) {
 document.querySelector('input[type="file"]').addEventListener("click", (e) => {
   if (e.target.value) e.preventDefault();
 });
+
+(function changeBrand() {
+  let currentClass = "betcasino";
+  let parent = document.querySelector(".teasers"),
+    childElements = parent.querySelectorAll("div, a, p"),
+    mobileParent = document.querySelector(".teaser-mobile"),
+    mobileChild = mobileParent.querySelectorAll("div, a, p");
+  function state(newClass) {
+    for (let i = 0; i < childElements.length; i++) {
+      childElements[i].classList?.remove(`${currentClass}`);
+      childElements[i].classList?.add(`${newClass}`);
+    }
+  }
+  function stateMobile(newClass) {
+    for (let i = 0; i < mobileChild.length; i++) {
+      mobileChild[i].classList?.remove(`${currentClass}`);
+      mobileChild[i].classList?.add(`${newClass}`);
+    }
+  }
+  document.querySelector("#brands").addEventListener("change", (e) => {
+    switch (e.target.value) {
+      case "betcasino":
+        state(e.target.value);
+        stateMobile(e.target.value);
+        currentClass = e.target.value;
+        break;
+      case "betpoker":
+        state(e.target.value);
+        stateMobile(e.target.value);
+        currentClass = e.target.value;
+        break;
+    }
+  });
+})();

@@ -11,39 +11,33 @@
     <div class="example">
       <div class="file-select">
         <label for="avatar">Drop a File</label>
+        <select id="brands">
+          <option value="betcasino" selected>BetMGM Casino</option>
+          <option value="betpoker">BetMGM Poker</option>
+        </select>
       </div>
       <div class="swiper-wrapper">
-        <div
-          data-swiper-slide-index="1"
-          class="bottom-terms swiper-item swiper-slide swiper-slide-prev"
-          style="width: 1350px; margin: auto"
-        >
+        <div data-swiper-slide-index="1" class="bottom-terms swiper-item swiper-slide swiper-slide-prev" style="width: 1350px; margin: auto">
           <div>
             <div class="teasers">
-              <div
-                class="item-slide actor-left title-big text-center actor no-cta"
-              >
+              <div class="item-slide actor-left title-big text-center actor no-cta">
                 <div>
                   <div class="md-teaser-body">
                     <div class="md-teaser-image">
                       <div class="drop-container no-content">
-                        <input
-                          type="file"
-                          id="avatar"
-                          name="avatar"
-                          accept="image/png, image/jpeg"
-                        />
+                        <input type="file" id="avatar" class="background absolute" name="avatar" accept="image/png, image/jpeg" />
                       </div>
                     </div>
                     <div class="md-teaser-text">
-                      <img alt="" src="./blank.png" />
+                      <div class="png-container">
+                        <input type="file" id="avatar" class="png" name="avatar" accept="image/png, image/jpeg" />
+                        <img class="carousel-png" alt="" src="./blank.png" />
+                      </div>
+
                       <div class="md-teaser-inner-text">
-                        <div class="title" style="color: rgb(255, 255, 255)">
-                          REFER A FRIEND TO BETMGM
-                        </div>
-                        <div class="subtitle" style="color: rgb(255, 255, 255)">
-                          BOTH OF YOU WILL GET A BONUS!
-                        </div>
+                        <div class="title" style="color: rgb(255, 255, 255)">REFER A FRIEND TO BETMGM</div>
+                        <div class="divider" style="color: rgb(255, 255, 255)"></div>
+                        <div class="subtitle" style="color: rgb(255, 255, 255)">BOTH OF YOU WILL GET A BONUS!</div>
                         <div class="md-teaser-cta">
                           <a class="btn btn-primary epcot-btn">LEARN MORE</a>
                         </div>
@@ -60,17 +54,15 @@
       <div class="teaser-mobile">
         <div class="container-mobile">
           <div>
+            <div class="header"></div>
             <div class="body-mobile text-center">
               <div class="md-teaser-image teaser-image-mobile">
                 <div class="teaser-text-mobile">
-                  <img class="image-mobile" alt="" src="./blank.png" />
+                  <img class="image-mobile carousel-png" alt="" src="./blank.png" />
                   <div class="inner-text-mobile">
-                    <div class="title" style="color: rgb(255, 255, 255)">
-                      REFER A FRIEND TO BETMGM
-                    </div>
-                    <div class="subtitle" style="color: rgb(255, 255, 255)">
-                      BOTH OF YOU WILL GET A BONUS!
-                    </div>
+                    <div class="title" style="color: rgb(255, 255, 255)">REFER A FRIEND TO BETMGM</div>
+                    <div class="divider" style="color: rgb(255, 255, 255)"></div>
+                    <div class="subtitle" style="color: rgb(255, 255, 255)">BOTH OF YOU WILL GET A BONUS!</div>
                     <div class="md-teaser-cta">
                       <a class="btn btn-primary epcot-btn">LEARN MORE</a>
                     </div>
@@ -89,7 +81,7 @@
       </div>
       <div class="h2-input input-text">
         <div>H2 Text</div>
-        <input class="subtitle" type="text" placeholder="H2" />
+        <input class="subtitle-input" type="text" placeholder="H2" />
       </div>
     </div>
     <script src="./index.js"></script>

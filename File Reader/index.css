@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;700&display=swap');
 @import url('./root.css');
+@import url('./poker.css');
 *{
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
@@ -32,12 +33,12 @@ label{
     padding: 10px 0px;
 }
 .input-container{
-    padding: 20px;
+    padding: 50px;
     display: flex;
     gap: 20px;
     width: 50%;
     margin: auto;
-    margin-bottom: 100px;
+    padding-bottom: 100px;
 }
 .input-text{
     padding: 15px 0;
@@ -58,13 +59,42 @@ label{
     height: 100%;
     width: 100%;
 }
-#avatar{
+.background{
+    /* position: absolute; */
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    z-index: 10;
+    user-select: none;
+}
+.absolute{
+    position: absolute;
+}
+.no-content{
+    border: 5px dashed red;
+    border-radius: 5px;
+    position: absolute;
+}
+.png-container{
+    position: relative;
+    z-index: 999;
+}
+.png{
     position: absolute;
     height: 100%;
     width: 100%;
     left: 0;
     top: 0;
     opacity: 0;
-    z-index: 99999;
     user-select: none;
+}
+.header{
+    background-image: url('./image.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 80px;
+    width: 100%;
 }
